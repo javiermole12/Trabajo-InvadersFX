@@ -55,11 +55,14 @@ public class EnemySpawner {
             case 2:
                 enemies = crearEnemigosNivelPaquito(gameRect);
                 break;
-            case 3:
-            default:
+            case 3: 
                 enemies = crearEnemigosNivelPulpo(gameRect);
                 break;
-
+            case 4:
+                enemies = crearEnemigosNivelJavier(gameRect);
+                break;
+            default:
+                
         }
         return enemies;
     }
@@ -136,6 +139,41 @@ public class EnemySpawner {
         enemies.add(createEnemyShip(E_DIAGONAL, ENEMYSHIP_SPRITE_IMAGE_2, gameRect, 7, 0, -vx, vy, E_SHOT_NOTHING));
         enemies.add(createEnemyShip(E_DIAGONAL, ENEMYSHIP_SPRITE_IMAGE_2, gameRect, 3, 0, -vx, vy, E_SHOT_NOTHING));
         enemies.add(createEnemyShip(E_DIAGONAL, ENEMYSHIP_SPRITE_IMAGE_2, gameRect, 4, 0, vx, vy, E_SHOT_NOTHING));
+        return enemies;
+    }
+
+        public static List<AEnemy> crearEnemigosNivelCuatro(Rect gameRect){
+        List<AEnemy> enemies = new ArrayList<>();
+       enemies.add(createEnemyShip(E_DIAGONAL, ENEMYSHIP_SPRITE_IMAGE_2, gameRect, 0, 1, vx, vy, E_SHOT_GUN));
+       enemies.add(createEnemyShip(E_DIAGONAL, ENEMYSHIP_SPRITE_IMAGE_2, gameRect, 3, 1, vx, vy, E_SHOT_GUN));
+       enemies.add(createEnemyShip(E_DIAGONAL, ENEMYSHIP_SPRITE_IMAGE_2, gameRect, 7, 1, vx, vy, E_SHOT_GUN));
+       enemies.add(createEnemyShip(E_DIAGONAL, ENEMYSHIP_SPRITE_IMAGE_2, gameRect, 1, 0, vx, vy, E_SHOT_GUN));
+       enemies.add(createEnemyShip(E_DIAGONAL, ENEMYSHIP_SPRITE_IMAGE_2, gameRect, 4, 0, vx, vy, E_SHOT_GUN));
+       enemies.add(createEnemyShip(E_DIAGONAL, ENEMYSHIP_SPRITE_IMAGE_2, gameRect, 6, 0, vx, vy, E_SHOT_GUN));
+       enemies.add(createEnemyShip(E_DIAGONAL, ENEMYSHIP_SPRITE_IMAGE_2, gameRect, 0, 1, vx, vy, E_SHOT_GUN));
+       enemies.add(createEnemyShip(E_DIAGONAL, ENEMYSHIP_SPRITE_IMAGE_2, gameRect, 3, 1, vx, vy, E_SHOT_GUN));
+       enemies.add(createEnemyShip(E_DIAGONAL, ENEMYSHIP_SPRITE_IMAGE_2, gameRect, 7, 1, vx, vy, E_SHOT_GUN));
+       enemies.add(createEnemyShip(E_DIAGONAL, ENEMYSHIP_SPRITE_IMAGE_2, gameRect, 1, 0, vx, vy, E_SHOT_GUN));
+       enemies.add(createEnemyShip(E_DIAGONAL, ENEMYSHIP_SPRITE_IMAGE_2, gameRect, 4, 0, vx, vy, E_SHOT_GUN));
+       enemies.add(createEnemyShip(E_DIAGONAL, ENEMYSHIP_SPRITE_IMAGE_2, gameRect, 6, 0, vx, vy, E_SHOT_GUN));
+
+       enemies.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_1, gameRect, 2, 4, vx2, vy, E_SHOT_NOTHING));
+       enemies.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_1, gameRect, 3, 4, vx2, vy, E_SHOT_NOTHING));
+       enemies.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_1, gameRect, 4, 4, vx2, vy, E_SHOT_NOTHING));
+       enemies.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_1, gameRect, 5, 4, vx2, vy, E_SHOT_NOTHING));
+
+        enemies.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING));
+        enemies.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING));
+        enemies.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING));
+        enemies.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING));
+        enemies.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING));
+        enemies.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING));
+        enemies.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING));
+        enemies.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING));
+        enemies.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING));
+        enemies.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING));
+
+
         return enemies;
     }
 
