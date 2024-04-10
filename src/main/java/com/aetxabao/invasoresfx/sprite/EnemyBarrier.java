@@ -16,7 +16,6 @@ public class EnemyBarrier extends AEnemy {
 
     @Override
     public void update() {
-        // Aquí puedes agregar la lógica de actualización específica para EnemyBarrier
     }
 
     public void reduceShieldStrength(int amount) {
