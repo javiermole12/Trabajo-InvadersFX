@@ -55,14 +55,12 @@ public class EnemySpawner {
             case 2:
                 enemies = crearEnemigosNivelPaquito(gameRect);
                 break;
-            case 3: 
+            case 3:
                 enemies = crearEnemigosNivelPulpo(gameRect);
                 break;
-            case 4:
+            default:
                 enemies = crearEnemigosNivelJavier(gameRect);
                 break;
-            default:
-                
         }
         return enemies;
     }
@@ -76,17 +74,36 @@ public class EnemySpawner {
      * @return una instancia del enemigo
      */
     public static EnemyShip createEnemyShip(EEnemyType type, Image enemyImage, Rect gameRect, int i, int j, int vx, int vy, EEnemyShot shot) {
-        EnemyShip e;
+        EnemyShip e = null;
         switch (type){
             case E_DIAGONAL:
                 e = new EnemyShipDiagonal(gameRect, enemyImage, TICKSxFRAME);
                 break;
             case E_NORMAL:
-            default:
                 e = new EnemyShip(gameRect, enemyImage, TICKSxFRAME);
                 break;
+            default:
         }
         if (shot == E_SHOT_GUN){
+            assert e != null;
+            e.setWeapon(new Gun());
+        }
+        e.setPos(getX(gameRect, i), getY(gameRect, j));
+        e.setXSpeed(vx);
+        e.setYSpeed(vy);
+        return e;
+    }
+
+    public static EnemyRocket createEnemyRocket(EEnemyType type, Image enemyImage, Rect gameRect, int i, int j, int vx, int vy, EEnemyShot shot) {
+        EnemyRocket e = null;
+        switch (type){
+            case E_ROCKET:
+                e = new EnemyRocket(gameRect, enemyImage, TICKSxFRAME);
+                break;
+            default:
+        }
+        if (shot == E_SHOT_GUN){
+            assert e != null;
             e.setWeapon(new Gun());
         }
         e.setPos(getX(gameRect, i), getY(gameRect, j));
@@ -142,7 +159,7 @@ public class EnemySpawner {
         return enemies;
     }
 
-        public static List<AEnemy> crearEnemigosNivelCuatro(Rect gameRect){
+    public static List<AEnemy> crearEnemigosNivelJavier(Rect gameRect){
         List<AEnemy> enemies = new ArrayList<>();
        enemies.add(createEnemyShip(E_DIAGONAL, ENEMYSHIP_SPRITE_IMAGE_2, gameRect, 0, 1, vx, vy, E_SHOT_GUN));
        enemies.add(createEnemyShip(E_DIAGONAL, ENEMYSHIP_SPRITE_IMAGE_2, gameRect, 3, 1, vx, vy, E_SHOT_GUN));
@@ -162,20 +179,21 @@ public class EnemySpawner {
        enemies.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_1, gameRect, 4, 4, vx2, vy, E_SHOT_NOTHING));
        enemies.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_1, gameRect, 5, 4, vx2, vy, E_SHOT_NOTHING));
 
-        enemies.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING));
-        enemies.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING));
-        enemies.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING));
-        enemies.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING));
-        enemies.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING));
-        enemies.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING));
-        enemies.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING));
-        enemies.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING));
-        enemies.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING));
-        enemies.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING));
+        enemies.add(createEnemyRocket(E_ROCKET, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING));
+        enemies.add(createEnemyRocket(E_ROCKET, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING));
+        enemies.add(createEnemyRocket(E_ROCKET, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING));
+        enemies.add(createEnemyRocket(E_ROCKET, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING));
+        enemies.add(createEnemyRocket(E_ROCKET, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING));
+        enemies.add(createEnemyRocket(E_ROCKET, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING));
+        enemies.add(createEnemyRocket(E_ROCKET, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING));
+        enemies.add(createEnemyRocket(E_ROCKET, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING));
+        enemies.add(createEnemyRocket(E_ROCKET, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING));
+        enemies.add(createEnemyRocket(E_ROCKET, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING));
+
+
 
 
         return enemies;
     }
-
 
 }
