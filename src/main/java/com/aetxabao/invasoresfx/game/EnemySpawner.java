@@ -58,8 +58,11 @@ public class EnemySpawner {
             case 3:
                 enemies = crearEnemigosNivelPulpo(gameRect);
                 break;
-            default:
+            case 4:
                 enemies = crearEnemigosNivelJavier(gameRect);
+                break;
+            default:
+                enemies = crearEnemigosNivelPablo(gameRect);
                 break;
         }
         return enemies;
@@ -111,6 +114,30 @@ public class EnemySpawner {
         e.setYSpeed(vy);
         return e;
     }
+
+    public static EnemyBarrier createEnemyBarrier(EEnemyType type, Image enemyImage, Rect gameRect, int i, int j, int vx, int vy, EEnemyShot shot, int shieldStrength) {
+        EnemyBarrier e = null;
+        switch (type) {
+            case E_BARRIER:
+                e = new EnemyBarrier(shieldStrength, gameRect, enemyImage, TICKSxFRAME);
+                break;
+            default:
+                // Puedes manejar aquí cualquier otro tipo de enemigo que no sea Barrier
+                break;
+        }
+
+        if (shot == E_SHOT_GUN && e != null) {
+            e.setWeapon(new Gun());
+        }
+
+        if (e != null) {
+            e.setPos(getX(gameRect, i), getY(gameRect, j));
+            e.setXSpeed(vx);
+            e.setYSpeed(vy);
+        }
+        return e;
+    }
+
 
     public static List<AEnemy> crearEnemigosNivelDonut(Rect gameRect) {
         List<AEnemy> enemies = new ArrayList<>();
@@ -190,8 +217,26 @@ public class EnemySpawner {
         enemies.add(createEnemyRocket(E_ROCKET, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING));
         enemies.add(createEnemyRocket(E_ROCKET, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING));
 
+        return enemies;
+    }
+    public static List<AEnemy> crearEnemigosNivelPablo(Rect gameRect){
+        List<AEnemy> enemies = new ArrayList<>();
+        enemies.add(createEnemyShip(E_DIAGONAL, ENEMYSHIP_SPRITE_IMAGE_2, gameRect, 0, 0, vx, vy, E_SHOT_NOTHING));
+        enemies.add(createEnemyShip(E_DIAGONAL, ENEMYSHIP_SPRITE_IMAGE_2, gameRect, 7, 0, -vx, vy, E_SHOT_NOTHING));
+        enemies.add(createEnemyShip(E_DIAGONAL, ENEMYSHIP_SPRITE_IMAGE_2, gameRect, 3, 0, -vx, vy, E_SHOT_NOTHING));
+        enemies.add(createEnemyShip(E_DIAGONAL, ENEMYSHIP_SPRITE_IMAGE_2, gameRect, 4, 0, vx, vy, E_SHOT_NOTHING));
 
+        enemies.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_1, gameRect, 2, 4, vx2, vy, E_SHOT_NOTHING));
+        enemies.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_1, gameRect, 3, 4, vx2, vy, E_SHOT_NOTHING));
+        enemies.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_1, gameRect, 4, 4, vx2, vy, E_SHOT_NOTHING));
+        enemies.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_1, gameRect, 5, 4, vx2, vy, E_SHOT_NOTHING));
 
+        enemies.add(createEnemyBarrier(E_BARRIER, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING, 5));
+        enemies.add(createEnemyBarrier(E_BARRIER, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING, 5));
+        enemies.add(createEnemyBarrier(E_BARRIER, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING, 5));
+        enemies.add(createEnemyBarrier(E_BARRIER, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING, 5));
+        enemies.add(createEnemyBarrier(E_BARRIER, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING, 5));
+        enemies.add(createEnemyBarrier(E_BARRIER, ENEMYSHIP_SPRITE_IMAGE_5, gameRect, 5, 5, vx2, vy, E_SHOT_NOTHING, 5));
 
         return enemies;
     }
