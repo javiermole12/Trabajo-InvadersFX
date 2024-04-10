@@ -27,12 +27,13 @@ public final class AppConsts {
     //endregion
 
     //region EnemyGenerator
-    final static int LEVELS = 3;
+    final static int LEVELS = 4;
     final static int TICKSxFRAME = 3;
     static final Image ENEMYSHIP_SPRITE_IMAGE_1 = new Image(Main.class.getResource("sprite/ei1.png").toString());
     static final Image ENEMYSHIP_SPRITE_IMAGE_2 = new Image(Main.class.getResource("sprite/ei2.png").toString());
-    static final Image ENEMYSHIP_SPRITE_IMAGE_3 = new Image(Main.class.getResource("sprite/ei3.png").toString());
+    static final Image ENEMYSHIP_SPRITE_IMAGE_4 = new Image(Main.class.getResource("sprite/ei4.png").toString());
     static final Image ENEMYSHIP_SPRITE_IMAGE_5 = new Image(Main.class.getResource("sprite/ei5.png").toString());
+    static final Image ENEMYSHIP_SPRITE_IMAGE_3 = new Image(Main.class.getResource("sprite/ei3.png").toString());
     static final Image ENEMYBARRIER4_SPRITE_IMAGE = new Image(Main.class.getResource("sprite/barrier4.png").toString());
     static final Image ENEMYTOWER3_SPRITE_IMAGE = new Image(Main.class.getResource("sprite/tower3.png").toString());
     //endregion
@@ -84,6 +85,13 @@ public final class AppConsts {
     public static final int ENEMYSHIP_COLS = 6;
     public static final int ENEMYSHIP_MAX_SPEED = 5;
     public static final double ENEMYSHIP_ALFA = 0.75;
+    //endregion
+
+    //region EnemyRocket
+    public static final int ENEMYROCKET_ROWS = 1;
+    public static final int ENEMYROCKET_COLS = 6;
+    public static final int ENEMYROCKET_Y_SPEED = 5;
+    public static final double ENEMYROCKET_ALFA = 0.75;
     //endregion
 
     //region Lifes
