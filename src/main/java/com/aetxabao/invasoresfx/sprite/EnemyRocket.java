@@ -4,12 +4,14 @@ import com.aetxabao.invasoresfx.util.Rect;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
+import java.util.List;
+
 import static com.aetxabao.invasoresfx.game.AppConsts.*;
 
 /**
  * Clase que representa un enemigo tipo cohete que se mueve en línea recta hacia abajo.
  */
-public class EnemyRocket extends AEnemy {
+public class EnemyRocket extends AEnemy implements ICanSpawn {
 
     private int ySpeed;
     Rect gameRect;
@@ -49,5 +51,10 @@ public class EnemyRocket extends AEnemy {
     private void resetPosition() {
         this.x = (int) (Math.random() * (getRect().width() - width) + getRect().left);
         this.y = getRect().top - height;
+    }
+
+    @Override
+    public List<AEnemy> spawn() {
+        return null;
     }
 }
